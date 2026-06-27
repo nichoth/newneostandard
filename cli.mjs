@@ -70,15 +70,15 @@ let {
       type: 'boolean',
     },
   },
-  description: 'Generate a neostandard config for eslint',
+  description: 'Generate a newneostandard config for eslint',
   examples: [
     '--semi --no-style > eslint.config.js',
   ],
-  name: 'neostandard',
+  name: 'newneostandard',
   pkg,
 })
 
-const flagMapping = /** @satisfies {Record<keyof typeof flags, keyof import('./index.js').NeostandardOptions>} */ ({
+const flagMapping = /** @satisfies {Record<keyof typeof flags, keyof import('./index.js').NewneostandardOptions>} */ ({
   env: 'env',
   global: 'globals',
   ignore: 'ignores',
@@ -137,7 +137,7 @@ if (migrate) {
           flagsFromMigration[key] = flagsFromMigration[key]?.map(item => gitignoreToMinimatch(item))
         }
       } else {
-        console.warn(`Migration for "standard.${key}" is not yet supported. Open an issue at https://github.com/neostandard/neostandard`)
+        console.warn(`Migration for "standard.${key}" is not yet supported. Open an issue at https://github.com/nichoth/newneostandard`)
       }
     }
   }
@@ -174,9 +174,9 @@ const semiEnding = flags.semi ? ';' : ''
 
 console.log(
   esm
-    ? `import neostandard from 'neostandard'${semiEnding}
+    ? `import neostandard from 'newneostandard'${semiEnding}
 
 export default neostandard(${formattedConfig})${semiEnding}`
     : `'use strict'${semiEnding}
 
-module.exports = require('neostandard')(${formattedConfig})${semiEnding}`)
+module.exports = require('newneostandard')(${formattedConfig})${semiEnding}`)

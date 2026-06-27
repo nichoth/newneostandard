@@ -2,10 +2,10 @@
   "name": "newneostandard",
   "version": "0.14.0",
   "description": "A modern successor to standard",
-  "homepage": "http://github.com/neostandard/neostandard",
+  "homepage": "https://github.com/nichoth/newneostandard",
   "repository": {
     "type": "git",
-    "url": "git://github.com/neostandard/neostandard.git"
+    "url": "git://github.com/nichoth/newneostandard.git"
   },
   "keywords": [],
   "license": "MIT",
@@ -13,7 +13,7 @@
     "node": "^20.19.0 || ^22.13.0 || >=24"
   },
   "bin": {
-    "neostandard": "cli.mjs"
+    "newneostandard": "cli.mjs"
   },
   "main": "index.js",
   "types": "index.d.ts",

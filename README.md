@@ -9,22 +9,19 @@
 
 <div align="center">
 
-[![npm version](https://img.shields.io/npm/v/neostandard.svg?style=flat)](https://www.npmjs.com/package/neostandard)
-[![npm downloads](https://img.shields.io/npm/dm/neostandard.svg?style=flat)](https://www.npmjs.com/package/neostandard)
-[![neostandard javascript style](https://img.shields.io/badge/neo-standard-7fffff?style=flat\&labelColor=ff80ff)](https://github.com/neostandard/neostandard)
+[![npm version](https://img.shields.io/npm/v/newneostandard.svg?style=flat)](https://www.npmjs.com/package/newneostandard)
+[![npm downloads](https://img.shields.io/npm/dm/newneostandard.svg?style=flat)](https://www.npmjs.com/package/newneostandard)
+[![neostandard javascript style](https://img.shields.io/badge/neo-standard-7fffff?style=flat\&labelColor=ff80ff)](https://github.com/nichoth/newneostandard)
 
-A spiritual successor to the [`standard`](https://github.com/standard/standard) javascript style guide
-
-**Initial development sponsored by:**
-
-<a href="https://platformatic.dev/"><img
-src="assets/platformatic.svg"
-width="450"
-height="auto"
-alt="platformatic"
-/></a>
+A spiritual successor to the [`standard`](https://github.com/standard/standard)
+javascript style guide.
 
 </div>
+
+## Fork
+
+This is a fork of [neostandard](https://github.com/neostandard/neostandard),
+updated to work with eslint version 10.
 
 ## Table of Contents
 
@@ -54,9 +51,9 @@ alt="platformatic"
 
 ### Migrate from `standard`
 
-1. `npm install -D neostandard eslint`
-2. (Validate that it runs cleanly by running `npx neostandard --help`, see [#267](https://github.com/neostandard/neostandard/issues/267))
-3. `npx neostandard --migrate > eslint.config.js` (uses our [config helper](#config-helper))
+1. `npm install -D newneostandard eslint`
+2. (Validate that it runs cleanly by running `npx newneostandard --help`, see [#267](https://github.com/neostandard/neostandard/issues/267))
+3. `npx newneostandard --migrate > eslint.config.js` (uses our [config helper](#config-helper))
 4. Replace `standard` with `eslint` in all places where you run `standard`, eg. `"scripts"` and `.github/workflows/` (`neostandard` CLI tracked in [#2](https://github.com/neostandard/neostandard/issues/2))
 5. (Add ESLint editor integration, eg. [VS Code ESLint extension](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint))
 6. Cleanup:
@@ -66,25 +63,25 @@ alt="platformatic"
 
 ### Add to new project
 
-1. `npm install -D neostandard eslint`
+1. `npm install -D newneostandard eslint`
 2. Add an `eslint.config.js`:
 
    Using config helper:
 
    ```sh
-   npx neostandard --esm > eslint.config.js
+   npx newneostandard --esm > eslint.config.js
    ```
 
    Or to get CommonJS:
 
    ```sh
-   npx neostandard > eslint.config.js
+   npx newneostandard > eslint.config.js
    ```
 
    Or manually create the file as ESM:
 
    ```js
-   import neostandard from 'neostandard'
+   import neostandard from 'newneostandard'
 
    export default neostandard({
      // options
@@ -94,11 +91,11 @@ alt="platformatic"
    Or as CommonJS:
 
    ```js
-   module.exports = require('neostandard')({
+   module.exports = require('newneostandard')({
      // options
    })
    ```
-3. Run `neostandard` by running ESLint, eg. using `npx eslint`, `npx eslint --fix` or similar
+3. Run `newneostandard` by running ESLint, eg. using `npx eslint`, `npx eslint --fix` or similar
 
 ## Configuration options
 
@@ -106,18 +103,18 @@ All examples below use **ESM (ECMAScript Modules)** syntax. If you're using **Co
 
   ```js
   // Replace
-  import neostandard from 'neostandard'
+  import neostandard from 'newneostandard'
   export default neostandard({ /* options */ })
 
   // With
-  const neostandard = require('neostandard')
+  const neostandard = require('newneostandard')
   module.exports = neostandard({ /* options */ })
   ```
 
-Here's a basic example of how to configure `neostandard`:
+Here's a basic example of how to configure `newneostandard`:
 
   ```js
-  import neostandard from 'neostandard'
+  import neostandard from 'newneostandard'
 
   export default neostandard({
     ts: true,  // an option
@@ -125,12 +122,12 @@ Here's a basic example of how to configure `neostandard`:
   })
   ```
 
-The options below allow you to customize `neostandard` for your project. Use them to add global variables, ignore files, enable TypeScript support, and more.
+The options below allow you to customize `newneostandard` for your project. Use them to add global variables, ignore files, enable TypeScript support, and more.
 
 * `env` - *`string[]`* - adds additional globals by importing them from the [globals](https://www.npmjs.com/package/globals) npm module
   
   ```js
-  import neostandard from 'neostandard'
+  import neostandard from 'newneostandard'
 
   export default neostandard({
     env: ['browser', 'mocha'],  // Add browser and mocha global variables
@@ -140,7 +137,7 @@ The options below allow you to customize `neostandard` for your project. Use the
 * `files` - *`string[]`* - additional file patterns to match. Uses the same shape as ESLint [`files`](https://eslint.org/docs/latest/use/configure/configuration-files#specifying-files-and-ignores)
   
   ```js
-  import neostandard from 'neostandard'
+  import neostandard from 'newneostandard'
 
   export default neostandard({
     files: ['src/**/*.js', 'tests/**/*.js'],  // Lint only files in src/ and tests/ directories
@@ -150,7 +147,7 @@ The options below allow you to customize `neostandard` for your project. Use the
 * `filesTs` - *`string[]`* - additional file patterns for the TypeScript configs to match. Uses the same shape as ESLint [`files`](https://eslint.org/docs/latest/use/configure/configuration-files#specifying-files-and-ignores)
   
   ```js
-  import neostandard from 'neostandard'
+  import neostandard from 'newneostandard'
 
   export default neostandard({
     ts: true,   // Enable TypeScript support
@@ -163,7 +160,7 @@ The options below allow you to customize `neostandard` for your project. Use the
   Using an array:
 
   ```js
-  import neostandard from 'neostandard'
+  import neostandard from 'newneostandard'
 
   export default neostandard({
     globals: ['$', 'jQuery'],  // Treat $ and jQuery as global variables
@@ -173,7 +170,7 @@ The options below allow you to customize `neostandard` for your project. Use the
   Using an object:
 
   ```js
-  import neostandard from 'neostandard'
+  import neostandard from 'newneostandard'
 
   export default neostandard({
     globals: {
@@ -187,7 +184,7 @@ The options below allow you to customize `neostandard` for your project. Use the
 * `ignores` - *`string[]`* - an array of glob patterns for files that the config should not apply to, see [ESLint documentation](https://eslint.org/docs/latest/use/configure/ignore) for details
   
   ```js
-  import neostandard from 'neostandard'
+  import neostandard from 'newneostandard'
 
   export default neostandard({
     ignores: ['dist/**/*', 'tests/**'],  // Ignore files in dist/ and tests/ directories
@@ -197,7 +194,7 @@ The options below allow you to customize `neostandard` for your project. Use the
 * `noJsx` - *`boolean`* - if set, no jsx rules will be added. Useful if for some reason its clashing with your use of JSX-style syntax
   
   ```js
-  import neostandard from 'neostandard'
+  import neostandard from 'newneostandard'
 
   export default neostandard({
     noJsx: true,  // Disable JSX-specific rules
@@ -207,7 +204,7 @@ The options below allow you to customize `neostandard` for your project. Use the
 * `noStyle` - *`boolean`* - if set, no style rules will be added. Especially useful when combined with [Prettier](https://prettier.io/), [dprint](https://dprint.dev/) or similar
   
   ```js
-  import neostandard from 'neostandard'
+  import neostandard from 'newneostandard'
 
   export default neostandard({
     noStyle: true,  // Disable style-related rules (useful with Prettier or dprint)
@@ -217,7 +214,7 @@ The options below allow you to customize `neostandard` for your project. Use the
 * `semi` - *`boolean`* - if set, enforce rather than forbid semicolons (same as `semistandard` did)
   
   ```js
-  import neostandard from 'neostandard'
+  import neostandard from 'newneostandard'
 
   export default neostandard({
     semi: true,  // Enforce semicolons (like semistandard)
@@ -227,7 +224,7 @@ The options below allow you to customize `neostandard` for your project. Use the
 * `ts` - *`boolean`* - if set, TypeScript syntax will be supported and `*.ts` (including `*.d.ts`) will be checked. To add additional file patterns to the TypeScript checks, use `filesTs`
   
   ```js
-  import neostandard from 'neostandard'
+  import neostandard from 'newneostandard'
 
   export default neostandard({
     ts: true,  // Enable TypeScript support and lint .ts files
@@ -236,10 +233,10 @@ The options below allow you to customize `neostandard` for your project. Use the
 
 ## Extending
 
-The `neostandard()` function returns an ESLint config array which is intended to be exported directly or, if you want to modify or extend the config, can be [combined with other configs](https://eslint.org/docs/latest/use/configure/combine-configs) like any other ESLint config array:
+The `newneostandard()` function returns an ESLint config array which is intended to be exported directly or, if you want to modify or extend the config, can be [combined with other configs](https://eslint.org/docs/latest/use/configure/combine-configs) like any other ESLint config array:
 
 ```js
-import neostandard from 'neostandard'
+import neostandard from 'newneostandard'
 import jsdoc from 'eslint-plugin-jsdoc';
 
 export default [
@@ -248,18 +245,18 @@ export default [
 ]
 ```
 
-Do note that `neostandard()` is intended to be a complete linting config in itself, only extend it if you have needs that goes beyond what `neostandard` provides, and [open an issue](https://github.com/neostandard/neostandard/issues) if you believe `neostandard` itself should be extended or changed in that direction.
+Do note that `newneostandard()` is intended to be a complete linting config in itself, only extend it if you have needs that goes beyond what `newneostandard` provides, and [open an issue](https://github.com/nichoth/newneostandard/issues) if you believe `newneostandard` itself should be extended or changed in that direction.
 
-It's recommended to stay compatible with the plain config when extending and only make your config stricter, not relax any of the rules, as your project would then still pass when using just the plain `neostandard`-config, which helps people know what baseline to expect from your project.
+It's recommended to stay compatible with the plain config when extending and only make your config stricter, not relax any of the rules, as your project would then still pass when using just the plain `newneostandard`-config, which helps people know what baseline to expect from your project.
 
 ### Adding back import checking
 
-As of neostandard v0.13.0, `eslint-plugin-import-x` has been removed to reduce dependency weight and installation complexity. For most projects, TypeScript's compiler (`tsc`) provides superior import/export checking with full project context.
+As of newneostandard v0.13.0, `eslint-plugin-import-x` has been removed to reduce dependency weight and installation complexity. For most projects, TypeScript's compiler (`tsc`) provides superior import/export checking with full project context.
 
 If you still need ESLint-based import checking, you can add it back manually:
 
 ```js
-import neostandard from 'neostandard'
+import neostandard from 'newneostandard'
 import importX from 'eslint-plugin-import-x'
 
 export default [
@@ -283,7 +280,7 @@ export default [
 For TypeScript projects, you may also want to add the TypeScript resolver:
 
 ```js
-import neostandard from 'neostandard'
+import neostandard from 'newneostandard'
 import importX from 'eslint-plugin-import-x'
 import { createTypeScriptImportResolver } from 'eslint-import-resolver-typescript'
 
@@ -329,7 +326,7 @@ Finds a `.gitignore` file that resides in the same directory as the ESLint confi
 ESM:
 
 ```js
-import neostandard, { resolveIgnoresFromGitignore } from 'neostandard'
+import neostandard, { resolveIgnoresFromGitignore } from 'newneostandard'
 
 export default neostandard({
   ignores: resolveIgnoresFromGitignore(),
@@ -339,14 +336,14 @@ export default neostandard({
 CommonJS:
 
 ```js
-module.exports = require('neostandard')({
-  ignores: require('neostandard').resolveIgnoresFromGitignore(),
+module.exports = require('newneostandard')({
+  ignores: require('newneostandard').resolveIgnoresFromGitignore(),
 })
 ```
 
 ### Exported plugins
 
-`neostandard` exports all the ESLint plugins that it uses. This to ensure that users who need to reference the plugin themselves will use the exact same instance of the plugin, which is a necessity when a plugin prefix is defined in multiple places.
+`newneostandard` exports all the ESLint plugins that it uses. This to ensure that users who need to reference the plugin themselves will use the exact same instance of the plugin, which is a necessity when a plugin prefix is defined in multiple places.
 
 #### List of exported plugins
 
@@ -361,7 +358,7 @@ module.exports = require('neostandard')({
 If one eg. wants to add the `eslint-plugin-n` recommended config, then one can do:
 
 ```js
-import neostandard, { plugins } from 'neostandard'
+import neostandard, { plugins } from 'newneostandard'
 
 export default [
   ...neostandard(),
@@ -399,13 +396,13 @@ Full list in [1.0.0 milestone](https://github.com/neostandard/neostandard/milest
 You can use the provided CLI tool to generate a config for you:
 
 ```sh
-neostandard --semi --ts > eslint.config.js
+newneostandard --semi --ts > eslint.config.js
 ```
 
 To see all available flags, run:
 
 ```sh
-neostandard --help
+newneostandard --help
 ```
 
 ### Config migration
@@ -413,51 +410,51 @@ neostandard --help
 The CLI tool can also migrate an existing `"standard"` configuration from `package.json`:
 
 ```sh
-neostandard --migrate > eslint.config.js
+newneostandard --migrate > eslint.config.js
 ```
 
 Migrations can also be extended, so to eg. migrate a `semistandard` setup, do:
 
 ```sh
-neostandard --semi --migrate > eslint.config.js
+newneostandard --semi --migrate > eslint.config.js
 ```
 
 ## Readme badges
 
-Yes! If you use `neostandard` in your project, you can include one of these badges in
-your readme to let people know that your code is using the neostandard style.
+Yes! If you use `newneostandard` in your project, you can include one of these badges in
+your readme to let people know that your code is using the newneostandard style.
 
-[![neostandard javascript style](https://img.shields.io/badge/neo-standard-7fffff?style=flat\&labelColor=ff80ff)](https://github.com/neostandard/neostandard)
+[![neostandard javascript style](https://img.shields.io/badge/neo-standard-7fffff?style=flat\&labelColor=ff80ff)](https://github.com/nichoth/newneostandard)
 
 ```md
-[![neostandard javascript style](https://img.shields.io/badge/neo-standard-7fffff?style=flat&labelColor=ff80ff)](https://github.com/neostandard/neostandard)
+[![neostandard javascript style](https://img.shields.io/badge/neo-standard-7fffff?style=flat&labelColor=ff80ff)](https://github.com/nichoth/newneostandard)
 ```
 
-[![neostandard javascript style](https://img.shields.io/badge/code_style-neostandard-7fffff?style=flat\&labelColor=ff80ff)](https://github.com/neostandard/neostandard)
+[![neostandard javascript style](https://img.shields.io/badge/code_style-neostandard-7fffff?style=flat\&labelColor=ff80ff)](https://github.com/nichoth/newneostandard)
 
 ```md
-[![neostandard javascript style](https://img.shields.io/badge/code_style-neostandard-7fffff?style=flat&labelColor=ff80ff)](https://github.com/neostandard/neostandard)
+[![neostandard javascript style](https://img.shields.io/badge/code_style-neostandard-7fffff?style=flat&labelColor=ff80ff)](https://github.com/nichoth/newneostandard)
 ```
 
-[![neostandard javascript style](https://img.shields.io/badge/code_style-neostandard-brightgreen?style=flat)](https://github.com/neostandard/neostandard)
+[![neostandard javascript style](https://img.shields.io/badge/code_style-neostandard-brightgreen?style=flat)](https://github.com/nichoth/newneostandard)
 
 ```md
-[![neostandard javascript style](https://img.shields.io/badge/code_style-neostandard-brightgreen?style=flat)](https://github.com/neostandard/neostandard)
+[![neostandard javascript style](https://img.shields.io/badge/code_style-neostandard-brightgreen?style=flat)](https://github.com/nichoth/newneostandard)
 ```
 
 ## Mission statement
 
 _Prior to the `1.0.0` release we are still rapidly evolving with fixes and improvements to reach rule parity with `standard`, hence more breaking changes will be experienced until then, as well as evolution of this statement_
 
-`neostandard` intends to set an expectable baseline for project linting that's _descriptive_ of best practices rather than _prescriptive_ of any opinionated approach.
+`newneostandard` intends to set an expectable baseline for project linting that's _descriptive_ of best practices rather than _prescriptive_ of any opinionated approach.
 
 ### Rule guidelines
 
-1. `neostandard` rules _describes_ current best practices in the community and help align developers, contributors and maintainers along those
-2. `neostandard` rules _are not_ a tool to promote changed practices within the community by _prescribing_ new such practices
-3. `neostandard` rule changes and additions should be aligned with projects prior to being released, by eg. sending PR:s to them to align them ahead of time. When new best practices are incompatible with current best practices, rules should first be relaxed to allow for both approaches, then be made stricter when the community has moved to the new approach
-4. `neostandard` rule changes and additions should improve the _description_ of project best practices, not _prescribe_ new practices
-5. `neostandard` should, when faced with no clear best practice, avoid adding such a rule as it risks becoming _prescriptive_ rather than _descriptive_. If leaving out such a rule would make `neostandard` an incomplete baseline config, and the community is split between a few clear alternatives (such as `semi`), then making it configurable can enable it to still be added, but that should only be done in exceptional cases
+1. `newneostandard` rules _describes_ current best practices in the community and help align developers, contributors and maintainers along those
+2. `newneostandard` rules _are not_ a tool to promote changed practices within the community by _prescribing_ new such practices
+3. `newneostandard` rule changes and additions should be aligned with projects prior to being released, by eg. sending PR:s to them to align them ahead of time. When new best practices are incompatible with current best practices, rules should first be relaxed to allow for both approaches, then be made stricter when the community has moved to the new approach
+4. `newneostandard` rule changes and additions should improve the _description_ of project best practices, not _prescribe_ new practices
+5. `newneostandard` should, when faced with no clear best practice, avoid adding such a rule as it risks becoming _prescriptive_ rather than _descriptive_. If leaving out such a rule would make `newneostandard` an incomplete baseline config, and the community is split between a few clear alternatives (such as `semi`), then making it configurable can enable it to still be added, but that should only be done in exceptional cases
 
 ## Governance
 

@@ -1,8 +1,8 @@
 'use strict'
 
-/** @typedef {import('./lib/main').NeostandardOptions} NeostandardOptions */
+/** @typedef {import('./lib/main').NewneostandardOptions} NewneostandardOptions */
 
-module.exports = require('./lib/main').neostandard
+module.exports = require('./lib/main').newneostandard
 
 module.exports.resolveIgnoresFromGitignore = require('./lib/resolve-gitignore').resolveIgnoresFromGitignore
 
