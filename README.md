@@ -378,7 +378,7 @@ Full list in [1.0.0 milestone](https://github.com/neostandard/neostandard/milest
 ## Differences to standard / eslint-config-standard 17.x
 
 * [Open governance](./GOVERNANCE.md), resolving [governance issue](https://github.com/standard/standard/issues/1948#issuecomment-2138078249)
-* Built for [ESLint 9](https://eslint.org/blog/2024/04/eslint-v9.0.0-released/)
+* Built for [ESLint 10](https://eslint.org/blog/2026/02/eslint-v10.0.0-released/)
 * Relies on [ESLint flat config](https://eslint.org/blog/2023/10/flat-config-rollout-plans/) to bundle plugins rather than custom [`standard-engine`](https://github.com/standard/standard-engine)
 * Replaces [deprecated ESLint style rules](https://eslint.org/blog/2023/10/deprecating-formatting-rules/) with [`eslint-stylistic`](https://eslint.style/) rules
 * Defaults to the `standard` behaviour of bundling JSX-support (ported from [`eslint-config-standard-jsx`](https://github.com/standard/eslint-config-standard-jsx)) with a `noJsx` option that deactivates it to match `eslint-config-standard`
